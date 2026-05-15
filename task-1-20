@@ -1,0 +1,520 @@
+```cpp id="n7xk2m"
+// structures_tasks.cpp
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+
+using namespace std;
+
+// ---------- STRUCTURES ----------
+struct Book {
+    string title;
+    string author;
+    int year;
+};
+
+struct Product {
+    string name;
+    double price;
+    int quantity;
+};
+
+struct Point {
+    double x, y;
+};
+
+struct Time {
+    int hours, minutes, seconds;
+};
+
+struct Rectangle {
+    double width, height;
+};
+
+struct Complex {
+    double real, imag;
+};
+
+struct Student {
+    string name;
+    int grade;
+};
+
+struct Date {
+    int day, month, year;
+};
+
+struct Segment {
+    Point start, end;
+};
+
+struct Order {
+    Product product;
+    int quantity;
+};
+
+struct RectPoints {
+    Point bottomLeft;
+    Point topRight;
+};
+
+struct Event {
+    string name;
+    Date date;
+    Time time;
+};
+
+// ---------- MAIN ----------
+int main() {
+
+    cout << fixed << setprecision(2);
+
+    // =========================
+    // ЗАДАЧА 1
+    // =========================
+    cout << "\n===== TASK 1 =====\n";
+
+    Book b;
+
+    cin.ignore();
+
+    cout << "Enter title: ";
+    getline(cin, b.title);
+
+    cout << "Enter author: ";
+    getline(cin, b.author);
+
+    cout << "Enter year: ";
+    cin >> b.year;
+
+    cout << "\"" << b.title << "\" by "
+         << b.author << " (" << b.year << ")\n";
+
+
+    // =========================
+    // ЗАДАЧА 2
+    // =========================
+    cout << "\n===== TASK 2 =====\n";
+
+    Product p;
+
+    cout << "Enter name: ";
+    cin >> p.name;
+
+    cout << "Enter price: ";
+    cin >> p.price;
+
+    cout << "Enter quantity: ";
+    cin >> p.quantity;
+
+    cout << "Total: " << p.price * p.quantity << " UAH\n";
+
+
+    // =========================
+    // ЗАДАЧА 3
+    // =========================
+    cout << "\n===== TASK 3 =====\n";
+
+    Point pt;
+
+    cout << "Enter x: ";
+    cin >> pt.x;
+
+    cout << "Enter y: ";
+    cin >> pt.y;
+
+    double distance = sqrt(pt.x * pt.x + pt.y * pt.y);
+
+    cout << "Distance from origin: " << distance << endl;
+
+
+    // =========================
+    // ЗАДАЧА 4
+    // =========================
+    cout << "\n===== TASK 4 =====\n";
+
+    Time t;
+
+    cout << "Enter hours: ";
+    cin >> t.hours;
+
+    cout << "Enter minutes: ";
+    cin >> t.minutes;
+
+    cout << "Enter seconds: ";
+    cin >> t.seconds;
+
+    int totalSeconds = t.hours * 3600 + t.minutes * 60 + t.seconds;
+
+    cout << "Total seconds: " << totalSeconds << endl;
+
+
+    // =========================
+    // ЗАДАЧА 5
+    // =========================
+    cout << "\n===== TASK 5 =====\n";
+
+    Rectangle r;
+
+    cout << "Enter width: ";
+    cin >> r.width;
+
+    cout << "Enter height: ";
+    cin >> r.height;
+
+    cout << "Area: " << r.width * r.height << endl;
+    cout << "Perimeter: " << 2 * (r.width + r.height) << endl;
+
+
+    // =========================
+    // ЗАДАЧА 6
+    // =========================
+    cout << "\n===== TASK 6 =====\n";
+
+    Point p1, p2;
+
+    cout << "Point 1 - Enter x: ";
+    cin >> p1.x;
+
+    cout << "Point 1 - Enter y: ";
+    cin >> p1.y;
+
+    cout << "Point 2 - Enter x: ";
+    cin >> p2.x;
+
+    cout << "Point 2 - Enter y: ";
+    cin >> p2.y;
+
+    double d = sqrt(pow(p2.x - p1.x, 2) + pow(p2.y - p1.y, 2));
+
+    cout << "Distance: " << d << endl;
+
+
+    // =========================
+    // ЗАДАЧА 7
+    // =========================
+    cout << "\n===== TASK 7 =====\n";
+
+    Time t1, t2;
+
+    cout << "Time 1 - hours: ";
+    cin >> t1.hours;
+
+    cout << "Time 1 - minutes: ";
+    cin >> t1.minutes;
+
+    cout << "Time 1 - seconds: ";
+    cin >> t1.seconds;
+
+    cout << "Time 2 - hours: ";
+    cin >> t2.hours;
+
+    cout << "Time 2 - minutes: ";
+    cin >> t2.minutes;
+
+    cout << "Time 2 - seconds: ";
+    cin >> t2.seconds;
+
+    int sec1 = t1.hours * 3600 + t1.minutes * 60 + t1.seconds;
+    int sec2 = t2.hours * 3600 + t2.minutes * 60 + t2.seconds;
+
+    cout << "Difference: " << abs(sec2 - sec1) << " seconds\n";
+
+
+    // =========================
+    // ЗАДАЧА 8
+    // =========================
+    cout << "\n===== TASK 8 =====\n";
+
+    Product pr1, pr2;
+
+    cout << "Product 1 - name: ";
+    cin >> pr1.name;
+
+    cout << "Product 1 - price: ";
+    cin >> pr1.price;
+
+    cout << "Product 2 - name: ";
+    cin >> pr2.name;
+
+    cout << "Product 2 - price: ";
+    cin >> pr2.price;
+
+    if (pr1.price > pr2.price)
+        cout << pr1.name << " is more expensive\n";
+    else
+        cout << pr2.name << " is more expensive\n";
+
+
+    // =========================
+    // ЗАДАЧА 9
+    // =========================
+    cout << "\n===== TASK 9 =====\n";
+
+    Complex c1, c2;
+
+    cout << "Complex 1 - real: ";
+    cin >> c1.real;
+
+    cout << "Complex 1 - imag: ";
+    cin >> c1.imag;
+
+    cout << "Complex 2 - real: ";
+    cin >> c2.real;
+
+    cout << "Complex 2 - imag: ";
+    cin >> c2.imag;
+
+    cout << "Sum: "
+         << c1.real + c2.real
+         << " + "
+         << c1.imag + c2.imag
+         << "i\n";
+
+
+    // =========================
+    // ЗАДАЧА 10
+    // =========================
+    cout << "\n===== TASK 10 =====\n";
+
+    Rectangle r1, r2;
+
+    cout << "Rectangle 1 - width: ";
+    cin >> r1.width;
+
+    cout << "Rectangle 1 - height: ";
+    cin >> r1.height;
+
+    cout << "Rectangle 2 - width: ";
+    cin >> r2.width;
+
+    cout << "Rectangle 2 - height: ";
+    cin >> r2.height;
+
+    double area1 = r1.width * r1.height;
+    double area2 = r2.width * r2.height;
+
+    if (area1 > area2)
+        cout << "Rectangle 1 is larger (area: " << area1 << ")\n";
+    else
+        cout << "Rectangle 2 is larger (area: " << area2 << ")\n";
+
+
+    // =========================
+    // Задача 11-15
+    // =========================
+    cout << "\n===== TASKS 11-15 =====\n";
+
+    Student students[3];
+
+    for (int i = 0; i < 3; i++) {
+        cout << "Student " << i + 1 << " - name: ";
+        cin >> students[i].name;
+
+        cout << "Student " << i + 1 << " - grade: ";
+        cin >> students[i].grade;
+    }
+
+    cout << "\nResults:\n";
+
+    int bestIndex = 0;
+    double average = 0;
+
+    for (int i = 0; i < 3; i++) {
+        cout << i + 1 << ". "
+             << students[i].name
+             << " - "
+             << students[i].grade
+             << endl;
+
+        average += students[i].grade;
+
+        if (students[i].grade > students[bestIndex].grade)
+            bestIndex = i;
+    }
+
+    average /= 3;
+
+    cout << "\nBest student: "
+         << students[bestIndex].name
+         << " (" << students[bestIndex].grade << ")\n";
+
+    cout << "Average grade: " << average << endl;
+
+
+    // =========================
+    // Задача 14-15 PRODUCTS
+    // =========================
+    Product warehouse[3];
+
+    double totalValue = 0;
+    int cheapest = 0;
+
+    for (int i = 0; i < 3; i++) {
+
+        cout << "Product " << i + 1 << " - name: ";
+        cin >> warehouse[i].name;
+
+        cout << "Product " << i + 1 << " - price: ";
+        cin >> warehouse[i].price;
+
+        cout << "Product " << i + 1 << " - quantity: ";
+        cin >> warehouse[i].quantity;
+
+        totalValue += warehouse[i].price * warehouse[i].quantity;
+
+        if (warehouse[i].price < warehouse[cheapest].price)
+            cheapest = i;
+    }
+
+    cout << "\nTotal warehouse value: "
+         << totalValue << " UAH\n";
+
+    cout << "Cheapest: "
+         << warehouse[cheapest].name
+         << " ("
+         << warehouse[cheapest].price
+         << " UAH)\n";
+
+
+    // =========================
+    // Задача 16
+    // =========================
+    cout << "\n===== TASK 16 =====\n";
+
+    Student st;
+    Date birth;
+
+    cout << "Enter name: ";
+    cin >> st.name;
+
+    cout << "Enter day: ";
+    cin >> birth.day;
+
+    cout << "Enter month: ";
+    cin >> birth.month;
+
+    cout << "Enter year: ";
+    cin >> birth.year;
+
+    cout << st.name
+         << " was born on "
+         << birth.day << "."
+         << birth.month << "."
+         << birth.year << endl;
+
+
+    // =========================
+    // Задача 17
+    // =========================
+    cout << "\n===== TASK 17 =====\n";
+
+    Segment s;
+
+    cout << "Start point - x: ";
+    cin >> s.start.x;
+
+    cout << "Start point - y: ";
+    cin >> s.start.y;
+
+    cout << "End point - x: ";
+    cin >> s.end.x;
+
+    cout << "End point - y: ";
+    cin >> s.end.y;
+
+    double len = sqrt(
+        pow(s.end.x - s.start.x, 2) +
+        pow(s.end.y - s.start.y, 2)
+    );
+
+    cout << "Segment length: " << len << endl;
+
+
+    // =========================
+    // Задача 18
+    // =========================
+    cout << "\n===== TASK 18 =====\n";
+
+    Order ord;
+
+    cout << "Product name: ";
+    cin >> ord.product.name;
+
+    cout << "Product price: ";
+    cin >> ord.product.price;
+
+    cout << "Order quantity: ";
+    cin >> ord.quantity;
+
+    cout << "Order total: "
+         << ord.product.price * ord.quantity
+         << " UAH\n";
+
+
+    // =========================
+    // Задача 19
+    // =========================
+    cout << "\n===== TASK 19 =====\n";
+
+    RectPoints rp;
+
+    cout << "Bottom-left - x: ";
+    cin >> rp.bottomLeft.x;
+
+    cout << "Bottom-left - y: ";
+    cin >> rp.bottomLeft.y;
+
+    cout << "Top-right - x: ";
+    cin >> rp.topRight.x;
+
+    cout << "Top-right - y: ";
+    cin >> rp.topRight.y;
+
+    double rectArea =
+        (rp.topRight.x - rp.bottomLeft.x) *
+        (rp.topRight.y - rp.bottomLeft.y);
+
+    cout << "Area: " << rectArea << endl;
+
+
+    // =========================
+    // Задача 20
+    // =========================
+    cout << "\n===== TASK 20 =====\n";
+
+    Event ev;
+
+    cin.ignore();
+
+    cout << "Event name: ";
+    getline(cin, ev.name);
+
+    cout << "Date - day: ";
+    cin >> ev.date.day;
+
+    cout << "Date - month: ";
+    cin >> ev.date.month;
+
+    cout << "Date - year: ";
+    cin >> ev.date.year;
+
+    cout << "Time - hours: ";
+    cin >> ev.time.hours;
+
+    cout << "Time - minutes: ";
+    cin >> ev.time.minutes;
+
+    cout << "\nEvent: " << ev.name << endl;
+
+    cout << "When: "
+         << ev.date.day << "."
+         << ev.date.month << "."
+         << ev.date.year
+         << " at "
+         << ev.time.hours << ":"
+         << ev.time.minutes << endl;
+
+    return 0;
+}
+```
